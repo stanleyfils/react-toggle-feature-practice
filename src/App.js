@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Toggle from "./Components/ToggleRenderProps";
+import Toggle from "./Components/ToogleRPC";
 
 class App extends Component {
   render() {
@@ -21,14 +21,15 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <Toggle
-          render={({ on, toggle }) => (
+        {/* anything that you want to toggle simply needs to be wrapped within this toggle. This is made possible with render props/children.  */}
+        <Toggle>
+          {({ on, toggle }) => (
             <div>
               {on && <h1>Show Me</h1>}
               <button onClick={toggle}>Show / Hide</button>
             </div>
           )}
-        />
+        </Toggle>
       </div>
     );
   }
